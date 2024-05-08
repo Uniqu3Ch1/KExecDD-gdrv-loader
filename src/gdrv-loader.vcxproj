@@ -137,6 +137,15 @@
   <ItemGroup>
     <ClInclude Include="global.h" />
     <ClInclude Include="ntdll.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="offsets.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\exploit.dll" />
+    <None Include="..\bin\exploit.exe" />
+    <None Include="..\bin\restore.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

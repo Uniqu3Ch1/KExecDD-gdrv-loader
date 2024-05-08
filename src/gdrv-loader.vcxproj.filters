@@ -29,5 +29,18 @@
     <ClInclude Include="ntdll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="offsets.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\exploit.exe" />
+    <None Include="..\bin\exploit.dll" />
+    <None Include="..\bin\restore.dll" />
   </ItemGroup>
 </Project>
