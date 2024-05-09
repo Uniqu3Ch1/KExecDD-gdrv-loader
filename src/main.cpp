@@ -192,7 +192,6 @@ int main(int argc, char *argv[]) {
 	DWORD CiOptionsOffset;
 	DWORD GadgetOffset;
 	CHAR lpTempPathBuffer[MAX_PATH];
-
 	STARTUPINFOA si;
 	PROCESS_INFORMATION pi;
 	Printf(L"\n");
@@ -216,5 +215,7 @@ int main(int argc, char *argv[]) {
 		NULL,
 		&si,
 		&pi);
+	CloseHandle(pi.hProcess);
+	CloseHandle(pi.hThread);
 	return 0;
 }

